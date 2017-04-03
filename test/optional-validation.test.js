@@ -226,7 +226,7 @@ describe('optional-validation', function() {
 
       // backwards compatible with validateUpsert
       it('should NOT throw on updateOrCreate(id) with invalid data', function(done) {
-        callUpdateOrCreateWithExistingUserId(null, expectChangeSuccess(INVALID_DATA, done));
+        callUpdateOrCreateWithExistingUserId(null, expectValidationError(done));
       });
 
       it('should NOT throw on updateOrCreate(id) with valid data', function(done) {
