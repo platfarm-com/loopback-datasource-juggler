@@ -914,7 +914,6 @@ describe('manipulation', function() {
     it('fails when id does not exist in db', function(done) {
       var post = {id: 123, title: 'a', content: 'AAA'};
       Post.updateOrCreate(post, function(err) {
-        console.log(err);
         err.statusCode.should.equal(404);
         done();
       });
