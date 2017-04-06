@@ -739,10 +739,10 @@ describe('manipulation', function() {
       Post = db.define('Post', {
         title: {type: String, id: true},
         content: {type: String},
-      }, {forceId: true});
+      }, {forceId: false});
       Todo = db.define('Todo', {
         content: String,
-      }, {forceId: true});
+      }, {forceId: false});
       Person = db.define('Person', {
         name: String,
         gender: String,
