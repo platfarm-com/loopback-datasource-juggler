@@ -902,7 +902,7 @@ describe('manipulation', function() {
 
   describe('updateOrCreate when forceId is true', function() {
     var Post;
-    before(function(done) {
+    before(function definePostModel(done) {
       var ds = getSchema();
       Post = ds.define('Post', {
         title: {type: String, length: 255},
@@ -932,17 +932,17 @@ describe('manipulation', function() {
 
     it('works on update if the request includes an existing id in db', function(done) {
       Post.create({title: 'a', content: 'AAA'},
-             function(err, post) {
-               if (err) return done(err);
-               post = post.toObject();
-               delete post.content;
-               post.title = 'b';
-               Post.updateOrCreate(post, function(err, p) {
-                 if (err) return done(err);
-                 p.id.should.equal(post.id);
-                 done();
-               });
-             });
+      function(err, post) {
+        if (err) return done(err);
+        post = post.toObject();
+        delete post.content;
+        post.title = 'b';
+        Post.updateOrCreate(post, function(err, p) {
+          if (err) return done(err);
+          p.id.should.equal(post.id);
+          done();
+        });
+      });
     });
   });
 
